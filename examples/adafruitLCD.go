@@ -32,17 +32,17 @@ func main() {
 	// start init
 	lcd.DelayMicroseconds(50000)
 
-	lcdPanel.Command(0x33) // $33 8-bit mode
-	lcdPanel.Command(0x32) // $32 8-bit mode
-	lcdPanel.Command(0x28) // $28 8-bit mode
-	lcdPanel.Command(0x0C) // $0C 8-bit mode
-	lcdPanel.Command(0x06) // $06 8-bit mode
+	lcdPanel.CommandByte(0x33) // $33 8-bit mode
+	lcdPanel.CommandByte(0x32) // $32 8-bit mode
+	lcdPanel.CommandByte(0x28) // $28 8-bit mode
+	lcdPanel.CommandByte(0x0C) // $0C 8-bit mode
+	lcdPanel.CommandByte(0x06) // $06 8-bit mode
 
-	lcdPanel.Command(0x04 | 0x02 | 0x00)
+	lcdPanel.CommandByte(0x04 | 0x02 | 0x00)
 
-	lcdPanel.Command(0x01)
+	lcdPanel.CommandByte(0x01)
 	lcd.DelayMicroseconds(3000)
 
 	// send text
-	lcdPanel.CommandString("TEST")
+	lcdPanel.Message("TEST")
 }
